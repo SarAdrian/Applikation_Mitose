@@ -20,7 +20,7 @@ def draw():
     # Ruler zeichnen (Quelle: Noa Sendlhofer)
     draw_ruler()
     # Korrektes Bild zum Prozess zeichnen
-    draw_process(int(round(process_angle)), circle_diamater, window_size)
+    draw_process(round(process_angle), circle_diamater, window_size)
     # Prozessbezeichnungen zeichnen
     draw_descriptions()
     
@@ -35,15 +35,8 @@ def draw_descriptions():
     textSize(25)
     
     # Den richtigen Namen, zu den Phasennummern wählen
-    switcher = {
-        0: "Mutterzelle",
-        1: "Interphase",
-        2: "Prophase",
-        3: "Metaphase",
-        4: "Anaphase",
-        5: "Telophase",
-        6: "Cytokinese"
-    }
+    Process_Names = ["Mutterzelle", "Interphase", "Prophase", "Metaphase", "Anaphase", "Telophase", "Cytokinese"]
+    
     # Für jeden der sieben Kreise wiederholen
     for i in range(0, 7):
         # Die x Koordinate berechnen mit dem Kosinus, multipliziert mit der Distanz zum Fenstermittelpunkt (Quelle: Noa Sendlhofer)
@@ -57,7 +50,7 @@ def draw_descriptions():
         # Den Text schwarz zeichnen
         fill(0,0,0)
         # Den richtigen Namen, zu den Phasennummern wählen
-        text(switcher.get(i), x, y + 10)
+        text(Process_Names[i], x, y + 10)
     
     # Den schwarzen Rand wieder aktivieren
     stroke(0,0,0)
